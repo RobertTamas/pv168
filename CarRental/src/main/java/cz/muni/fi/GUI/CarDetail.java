@@ -2,6 +2,8 @@ package cz.muni.fi.GUI;
 
 import cz.muni.fi.car.Car;
 import cz.muni.fi.car.CarManager;
+import cz.muni.fi.exceptions.ServiceFailureException;
+import cz.muni.fi.exceptions.ValidationException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -50,7 +52,8 @@ public class CarDetail {
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(frame,
                             texts.getString("mustBeNumber"));
-                } catch (Exception ex) {
+                } catch (IllegalArgumentException |
+                        ServiceFailureException | ValidationException ex) {
                     JOptionPane.showMessageDialog(frame, ex.getMessage());
                 }
             }
@@ -102,7 +105,8 @@ public class CarDetail {
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(frame,
                             texts.getString("mustBeNumber"));
-                } catch (Exception ex) {
+                } catch (IllegalArgumentException |
+                        ServiceFailureException | ValidationException ex) {
                     JOptionPane.showMessageDialog(frame, ex.getMessage());
                 }
             }

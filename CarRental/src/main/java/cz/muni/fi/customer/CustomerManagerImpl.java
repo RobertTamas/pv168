@@ -115,7 +115,8 @@ public class CustomerManagerImpl implements CustomerManager {
                     rs.getString("phone_number"));
 
     @Override
-    public void validate(Customer customer) {
+    public void validate(Customer customer) throws IllegalArgumentException,
+            ValidationException {
         if (customer == null) {
             throw new IllegalArgumentException(texts.getString("customerID") +
                     texts.getString("isNull"));

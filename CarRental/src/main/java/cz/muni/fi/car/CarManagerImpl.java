@@ -236,7 +236,8 @@ public class CarManagerImpl implements CarManager {
     }
 
     @Override
-    public void validate(Car car) {
+    public void validate(Car car) throws IllegalArgumentException,
+            ValidationException{
         if (car == null) {
             throw new IllegalArgumentException(texts.getString("car") +
                     texts.getString("isNull"));

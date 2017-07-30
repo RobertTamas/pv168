@@ -300,6 +300,5 @@ public class CarRentalGUI {
             delete.setEnabled(false);
             update.setEnabled(false);
         }
-        ;
     }
 }

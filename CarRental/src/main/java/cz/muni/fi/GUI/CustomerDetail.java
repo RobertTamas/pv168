@@ -2,6 +2,8 @@ package cz.muni.fi.GUI;
 
 import cz.muni.fi.customer.Customer;
 import cz.muni.fi.customer.CustomerManager;
+import cz.muni.fi.exceptions.ServiceFailureException;
+import cz.muni.fi.exceptions.ValidationException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -44,7 +46,8 @@ public class CustomerDetail {
                     customerManager.validate(customer);
                     customersTableModel.addCustomer(customer);
                     frame.dispose();
-                } catch (Exception ex) {
+                } catch (IllegalArgumentException |
+                        ServiceFailureException | ValidationException ex) {
                     JOptionPane.showMessageDialog(frame, ex.getMessage());
                 }
             }
@@ -93,7 +96,8 @@ public class CustomerDetail {
                     customerManager.validate(customerCopy);
                     customersTableModel.updateCustomer(customerCopy);
                     frame.dispose();
-                } catch (Exception ex) {
+                } catch (IllegalArgumentException |
+                        ServiceFailureException | ValidationException ex) {
                     JOptionPane.showMessageDialog(frame, ex.getMessage());
                 }
             }

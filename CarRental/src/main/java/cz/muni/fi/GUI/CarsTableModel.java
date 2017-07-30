@@ -149,7 +149,7 @@ public class CarsTableModel extends DefaultTableModel {
      *
      * @param car car to be updated
      */
-    public void updateCar(Car car) throws Exception {
+    public void updateCar(Car car) {
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() throws Exception {

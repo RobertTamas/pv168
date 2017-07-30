@@ -5,6 +5,8 @@ import cz.muni.fi.car.Car;
 import cz.muni.fi.car.CarManager;
 import cz.muni.fi.customer.Customer;
 import cz.muni.fi.customer.CustomerManager;
+import cz.muni.fi.exceptions.ServiceFailureException;
+import cz.muni.fi.exceptions.ValidationException;
 import cz.muni.fi.lease.Lease;
 import cz.muni.fi.lease.LeaseManager;
 import org.jdatepicker.impl.JDatePanelImpl;
@@ -91,7 +93,8 @@ public class LeaseDetail {
                     leaseManager.validate(lease);
                     leasesTableModel.addLease(lease);
                     frame.dispose();
-                } catch (Exception ex) {
+                } catch (IllegalArgumentException |
+                        ServiceFailureException | ValidationException ex) {
                     JOptionPane.showMessageDialog(frame, ex.getMessage());
                 }
             }
@@ -181,7 +184,8 @@ public class LeaseDetail {
                     leaseManager.validate(leaseCopy);
                     leasesTableModel.updateLease(leaseCopy);
                     frame.dispose();
-                } catch (Exception ex) {
+                } catch (IllegalArgumentException |
+                        ServiceFailureException | ValidationException ex) {
                     JOptionPane.showMessageDialog(frame, ex.getMessage());
                 }
             }
