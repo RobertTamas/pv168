@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CarRentalWebApp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="cz.muni.fi-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="CarRentalWebApp:war exploded" />
+    </root>
+  </artifact>
+</component>
